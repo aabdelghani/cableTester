@@ -97,9 +97,7 @@ Example `gpio_config.json`:
 }
 ```
 
-### Usage
-
-The script is designed to run at startup. Ensure it is executable and configured to launch when the Raspberry Pi boots up.
+### [Video](RPiCableTester.mp4) 
 
 ## Contributing
 
