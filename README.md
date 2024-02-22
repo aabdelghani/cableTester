@@ -89,12 +89,10 @@ Example `gpio_config.json`:
 
 ```json
 {
-  "ConnectorPins": [
-    [2, 3, 4, 17, 27, 22],
-    [5, 6, 13, 19, 26, 21],
-    [9, 10, 11, 0, 5, 6]
-  ],
-  "LEDPin": 14
+    "OutPins": [2, 3, 4, 17, 27, 22],
+    "InPinsA": [10, 9, 11, 5, 6, 13],
+    "InPinsB": [18, 23, 24, 25, 8, 7],
+    "Indicator": 21
 }
 ```
 
