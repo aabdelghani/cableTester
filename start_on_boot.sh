@@ -13,5 +13,5 @@ LOG="$BASE_DIR/logs/log.txt"
 sleep 30
 
 # Run the script and redirect output to the log file
-sudo /usr/bin/python $SCRIPT >$LOG 2>&1
+sudo /usr/bin/python $SCRIPT >$LOG 2>&1 | tee -a $LOG
 

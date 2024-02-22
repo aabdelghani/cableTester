@@ -1,14 +1,21 @@
 import time
 import RPi.GPIO as GPIO
-import json 
+import os
+import json
 
-# Function to load GPIO pin configurations from a JSON file
 def load_config(filename):
-    with open(filename, 'r') as file:
+    # Get the absolute path to the config directory
+    config_dir = os.path.join(os.path.dirname(__file__), '..', 'config')
+    # Construct the full path to the JSON file
+    full_path = os.path.join(config_dir, filename)
+    
+    # Load the pin configurations
+    with open(full_path, 'r') as file:
         return json.load(file)
 
-# Load the pin configurations
-config = load_config('../config/gpio_config.json')
+# Usage example
+config = load_config('gpio_config.json')
+
 
 # Assign pins from the loaded configuration
 OutPins = config["OutPins"]
