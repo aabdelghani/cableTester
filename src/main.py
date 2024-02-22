@@ -1,12 +1,20 @@
 import time
 import RPi.GPIO as GPIO
+import json 
 
-# Sequential GPIO pin configurations based on physical pin order for Raspberry Pi 4
-OutPins = [2, 3, 4, 17, 27, 22]  # Output pins
-InPinsA = [10, 9, 11, 5, 6, 13, 19, 26]  # Input pins with pull-up (Group A)
-InPinsB = [18, 23, 24, 25, 8, 7]  # Input pins with pull-up (Group B)
-Indicator = 16  # Pin for the indicator LED" 
+# Function to load GPIO pin configurations from a JSON file
+def load_config(filename):
+    with open(filename, 'r') as file:
+        return json.load(file)
 
+# Load the pin configurations
+config = load_config('gpio_config.json')
+
+# Assign pins from the loaded configuration
+OutPins = config["OutPins"]
+InPinsA = config["InPinsA"]
+InPinsB = config["InPinsB"]
+Indicator = config["Indicator"]
 
 # Setup GPIO
 GPIO.setmode(GPIO.BCM)
@@ -36,8 +44,8 @@ try:
     while True:
         # Check each pair of pins for their connection status
         for i, out_pin in enumerate(OutPins):
-            in_pin_a = InPinsA[i % len(InPinsA)]  # Adjusted for index out of range if InPinsA is shorter
-            in_pin_b = InPinsB[i % len(InPinsB)]  # Adjusted for index out of range if InPinsB is shorter
+            in_pin_a = InPinsA[i % len(InPinsA)]
+            in_pin_b = InPinsB[i % len(InPinsB)]  
             # Check if both corresponding input pins are LOW (connected)
             if GPIO.input(in_pin_a) == 0 and GPIO.input(in_pin_b) == 0:
                 ConnStatus[i] = 1  # Connection is correct
