@@ -97,7 +97,7 @@ Example `gpio_config.json`:
 }
 ```
 
-### [Video](RPiCableTester.mp4) 
+## [Video](RPiCableTester.mp4) 
 
 ## Contributing
 
