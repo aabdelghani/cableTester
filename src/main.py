@@ -8,7 +8,7 @@ def load_config(filename):
         return json.load(file)
 
 # Load the pin configurations
-config = load_config('gpio_config.json')
+config = load_config('../config/gpio_config.json')
 
 # Assign pins from the loaded configuration
 OutPins = config["OutPins"]
