@@ -3,6 +3,22 @@
 
 This project develops a system using a Raspberry Pi 4 to verify the correct pinning of a cable harness (Y-cable with 3 connectors, each having 6 pins). The system indicates the correct connection through an externally connected LED.
 
+## Project Structure
+
+```
+cableTester
+├── config
+│   └── gpio_config.json
+├── logs
+│   └── log.txt
+├── README.md
+├── scripts
+├── setup_autostart.sh
+├── src
+│   └── main.py
+└── 
+```
+
 ## Algorithm Overview
 
 The script's algorithm is designed to efficiently verifies the connectivity of a Y cable harness which has 3 connectors. by configuring one connector -6 pin- as an output. and the other two as an input and also a LED indicator that lights up green if the connections are proper. The verification process involves reading the state of input pins and comparing them against expected conditions that signify correct wiring.
@@ -28,6 +44,28 @@ The script's algorithm is designed to efficiently verifies the connectivity of a
 
 5. **Interrupt Handling:**
    - Handles interruptions by executing a cleanup routine to reset GPIO settings.
+
+
+## Autostart Configuration
+
+The project includes scripts to configure your Raspberry Pi to automatically start the cable tester script at boot.
+
+### `setup_autostart.sh`
+
+This script configures your system to automatically run `start_on_boot.sh` at startup. It adds a command to `/etc/rc.local` to execute the `start_on_boot.sh` script, ensuring that the main Python script starts running after the system boots.
+
+To use this script:
+
+1. Navigate to the project's root directory.
+2. Make the script executable: `chmod +x setup_autostart.sh`
+3. Run the script: `./setup_autostart.sh`
+4. Follow the prompts to complete the setup. You may be asked to reboot your Raspberry Pi to apply the changes.
+
+### `start_on_boot.sh`
+
+This script is called by `setup_autostart.sh` at system startup. It waits for the network to stabilize (optional), then runs `main.py` from the `src` directory, logging output to `logs/log.txt`.
+
+To modify the wait time for the network or the path of the Python script, edit `start_on_boot.sh` accordingly.
 
 
 ### Prerequisites
