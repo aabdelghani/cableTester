@@ -64,4 +64,3 @@ try:
 
 except KeyboardInterrupt:
     GPIO.cleanup()  # Clean up GPIO settings on exit
-    print("Final Connection Status:", ConnStatus)
