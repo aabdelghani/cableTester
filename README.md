@@ -16,7 +16,9 @@ cableTester
 ├── setup_autostart.sh
 ├── src
 │   └── main.py
-└── 
+└──
+|
+└── Video_Of_Working RPI
 ```
 
 ## Algorithm Overview
@@ -99,7 +101,6 @@ Example `gpio_config.json`:
 ### Usage
 
 The script is designed to run at startup. Ensure it is executable and configured to launch when the Raspberry Pi boots up.
-
 
 ## Contributing
 
