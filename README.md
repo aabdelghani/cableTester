@@ -39,13 +39,6 @@ The script's algorithm is designed to efficiently verifies the connectivity of a
    - **Overall Verification:** Uses `verifyLinks` to determine if all connections are correct.
    - **Indicator Update:** Turns the LED on or off based on the overall connection status.
 
-4. **Continuous Monitoring and Feedback:**
-   - Introduces a pause between iterations for real-time monitoring.
-
-5. **Interrupt Handling:**
-   - Handles interruptions by executing a cleanup routine to reset GPIO settings.
-
-
 ## Autostart Configuration
 
 The project includes scripts to configure your Raspberry Pi to automatically start the cable tester script at boot.
