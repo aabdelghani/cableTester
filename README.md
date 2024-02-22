@@ -20,9 +20,10 @@ cableTester
 |
 └── Video_Of_Working RPI
 ```
+## Flow Chart 
+ ![Flowchart Description](FlowChart.png)
 
 ## Algorithm Overview
-
 The script's algorithm is designed to efficiently verifies the connectivity of a Y cable harness which has 3 connectors. by configuring one connector -6 pin- as an output. and the other two as an input and also a LED indicator that lights up green if the connections are proper. The verification process involves reading the state of input pins and comparing them against expected conditions that signify correct wiring.
 
 ## Detailed Algorithm Workflow
